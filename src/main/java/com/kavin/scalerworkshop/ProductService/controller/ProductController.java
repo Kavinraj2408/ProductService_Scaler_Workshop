@@ -29,7 +29,7 @@ public class ProductController {
 		
 		ResponseEntity<UserModel> response = null;
 		if(!(product.isPublic())) {
-			response = restTemp.getForEntity("http://localhost:8085/users/"+userId, UserModel.class);
+			response = restTemp.getForEntity("http://USER-SERVICE/users/"+userId, UserModel.class);
 			UserModel user = response.getBody();
 			if(!(user.isAdmin())) {
 				return new Product();
